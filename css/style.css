@@ -1,0 +1,652 @@
+/* General Styling */
+:root {
+    --primary-font: 'Montserrat', sans-serif;
+    --secondary-font: 'Playfair Display', serif;
+    --background-color: #FDF8F5;
+    --text-color: #333;
+    --primary-color: #C8A165; /* Gold */
+    --secondary-color: #5D737E; /* Dark Greenish Blue */
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(200, 161, 101, 0.7);
+    }
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(200, 161, 101, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(200, 161, 101, 0);
+    }
+}
+
+body {
+    font-family: var(--primary-font);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    font-family: var(--secondary-font);
+    font-weight: normal;
+}
+
+h1 { font-size: 4rem; }
+h2 { font-size: 3rem; margin-top: 0; }
+h3 { font-size: 2rem; }
+p { font-size: 1rem; line-height: 1.6; }
+
+section {
+    padding: 4rem 2rem;
+}
+
+/* Cover Section */
+.cover-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    transition: transform 1s ease-in-out;
+    background: url('../images/aldimila.jpg') no-repeat center center/cover; /* Added background image */
+    color: white;
+}
+
+.cover-section.hidden {
+    transform: translateY(-100%);
+}
+
+.cover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    z-index: 1;
+}
+
+.cover-content {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+    max-width: 600px;
+}
+
+.cover-box {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    padding: 2rem;
+    border-radius: 10px;
+    /* backdrop-filter: blur(5px); */ /* Optional: adds a blur effect */
+    /* -webkit-backdrop-filter: blur(5px); */ /* For Safari */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Light border */
+}
+
+.cover-intro {
+    font-family: var(--primary-font);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    margin: 0;
+    color: black;
+}
+
+.cover-names {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4rem;
+    margin: 1rem 0;
+    color: var(--primary-color);
+    font-weight: normal;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.cover-date {
+    font-family: var(--primary-font);
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+.invitation-text {
+    font-size: 0.9rem;
+    color: black; /* Ensure visibility against the overlay */
+    margin-bottom: 1rem;
+}
+
+.guest-info {
+    margin-bottom: 2.5rem;
+}
+
+.guest-info p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+}
+
+.guest-name-display {
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: var(--secondary-font);
+}
+
+#open-invitation {
+    background-color: var(--primary-color);
+    color: white;
+    border: 2px solid var(--primary-color);
+    padding: 0.8rem 2rem;
+    font-size: 0.9rem;
+    font-family: var(--primary-font);
+    cursor: pointer;
+    border-radius: 50px;
+    margin-top: 1rem;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    animation: pulse 2s infinite;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    letter-spacing: 1px;
+}
+
+#open-invitation:hover {
+    background-color: transparent;
+    color: var(--primary-color);
+    transform: scale(1.05);
+    animation: none;
+}
+
+/* Main Content */
+#main-content.hidden {
+    display: none;
+}
+
+/* Hero Section */
+.hero-section {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('../images/milaaldi.jpg') no-repeat center center/contain;
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.hero-content {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.hero-content h1 {
+    font-size: 6rem;
+    margin: 0;
+}
+
+/* Couple Section */
+.couple-section {
+    background-color: #fff;
+}
+
+.couple-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.couple-profile {
+    max-width: 300px;
+    padding: 1rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.couple-profile:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.couple-profile img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid var(--primary-color);
+    object-fit: cover;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.ampersand {
+    font-family: var(--secondary-font);
+    font-size: 4rem;
+    color: var(--primary-color);
+}
+
+/* Love Story Section */
+.love-story-section {
+    background-color: var(--background-color);
+}
+
+.story-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    line-height: 1.8;
+}
+
+.story-container h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.story-container p {
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+/* Countdown Section */
+.countdown-section {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.timer-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 5px;
+    min-width: 80px;
+}
+
+.timer-box span {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+/* Event Section */
+.event-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.event-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    max-width: 400px;
+    flex-grow: 1;
+}
+
+.event-card h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+}
+
+.event-card p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+.map-button {
+    display: inline-block;
+    margin-top: 1rem;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 0.7rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.map-button:hover {
+    background-color: #4a616a;
+}
+
+/* Footer */
+footer {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 3rem 2rem;
+}
+
+footer .couple-names {
+    font-family: var(--secondary-font);
+    font-size: 3rem;
+    margin: 0;
+}
+
+/* Music Player */
+#music-player {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+}
+
+#play-pause-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h1 { font-size: 3rem; }
+    .cover-content .couple-names { font-size: 3.5rem; }
+    .hero-content h1 { font-size: 4rem; }
+    
+    .couple-container {
+        flex-direction: column;
+    }
+
+    section {
+        padding: 3rem 1rem;
+    }
+}
+
+/* Map Modal */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 101; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+    padding-top: 60px;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 800px;
+    position: relative;
+    border-radius: 10px;
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 0px;
+    right: 15px;
+    font-size: 35px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#map-iframe {
+    border-radius: 5px;
+    border: none;
+}
+
+/* Map Section */
+.map-section {
+    background-color: var(--background-color);
+}
+
+.map-container {
+    max-width: 900px;
+    margin: 2rem auto 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 5px solid var(--primary-color);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.map-container iframe {
+    display: block;
+    width: 100%;
+}
+
+/* Lightbox Gallery Section */
+.gallery-lightbox-section {
+    padding: 4rem 2rem;
+    background-color: #fff;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.gallery-grid a {
+    display: block;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-grid a:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* Lightbox Styles (using a simple CSS-only approach for now) */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.lightbox.show {
+    display: flex;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+}
+
+.lightbox-content img {
+    width: 100%;
+    height: auto;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+.lightbox-caption {
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 1.1rem;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* RSVP & Guestbook Form Styling */
+.rsvp-section, .guestbook-section {
+    background-color: var(--background-color);
+    padding: 4rem 2rem;
+}
+
+.rsvp-form, .guestbook-form {
+    max-width: 600px;
+    margin: 2rem auto 0 auto;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: var(--primary-font);
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.radio-group {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: normal;
+}
+
+.btn-submit {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #b38e54;
+}
+
+/* Guestbook Messages */
+.guestbook-messages {
+    max-width: 600px;
+    margin: 2rem auto 0 auto;
+    text-align: left;
+}
+
+.guestbook-message {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.guestbook-message p {
+    margin: 0;
+    padding: 0;
+}
+
+.guestbook-message .sender {
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .rsvp-form, .guestbook-form {
+        padding: 1.5rem;
+    }
+    .gallery-lightbox-section, .rsvp-section, .guestbook-section {
+        padding: 3rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .countdown-timer {
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    .timer-box {
+        padding: 0.8rem 0.5rem;
+        min-width: 60px;
+    }
+
+    .timer-box span {
+        font-size: 1.8rem;
+    }
+}
